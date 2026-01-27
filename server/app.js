@@ -4,41 +4,41 @@
  * Configures middlewares, routes, and database connections.
  */
 
-// ℹ️ Gets access to environment variables/settings
+// Gets access to environment variables/settings
 // https://www.npmjs.com/package/dotenv
 require("dotenv").config();
 
-// ℹ️ Connects to the database
+// Connects to the database
 // Note: Database connection will be enabled in the next commit
-// require("./db");
+require("./db");
 
 const express = require("express");
 const session = require('express-session');
 const passport = require('passport');
 
-// ℹ️ Passport configuration
+// Passport configuration
 // Note: Passport config will be enabled in future commits
 // require('./config/passport');
 
 const app = express();
 
-// ℹ️ This function is getting exported from the config folder.
+// This function is getting exported from the config folder.
 // It runs most pieces of middleware
 // Note: Middleware config will be enabled in the next commit
-// require("./config")(app);
+require("./config")(app);
 
-// ℹ️ Session configuration
+// Session configuration
 app.use(session({
 	secret: process.env.SESSION_SECRET, // Security: Only use env variable
 	resave: false,
 	saveUninitialized: false,
 }));
 
-// ℹ️ Passport initialization
+// Passport initialization
 app.use(passport.initialize());
 app.use(passport.session());
 
-// 👇 Start handling routes here
+// Start handling routes here
 // Note: Routes will be enabled in future commits
 // const indexRoutes = require("./routes/index.routes");
 // app.use("/api", indexRoutes);
