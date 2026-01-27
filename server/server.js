@@ -7,7 +7,7 @@
 
 const app = require("./app");
 
-// ℹ️ Sets the port the server handles requests on.
+// Sets the port the server handles requests on.
 // If process.env.PORT is not found, it falls back to 5005
 const PORT = process.env.PORT || 5005;
 
